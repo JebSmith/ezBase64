@@ -1,5 +1,3 @@
-#include "ezBase64.h"
-
 #define EZ_STR_INIT ""
 #define EZ_STR_MAKE_INIT(str) str=EZ_STR_INIT
 
@@ -19,7 +17,8 @@ char*ezAppendData(char*str1,char*str2)
 
 void ezBase64ZeroMem(char*ezInput,int size)
 {
-	for (int i = 0;i<size;i++)
+	int i;
+	for (i = 0;i<size;i++)
 	{
 		ezInput[i] = '\0';
 	}
@@ -42,7 +41,8 @@ unsigned char ezBase642Char(char c) {
 void ezBase2Bin(char*ezInput,char*ezBin)
 {
 	int tot = 0;
-	for (int i = 0; i < 4; i++)
+	int i;
+	for (i = 0; i < 4; i++)
 	{
 		if (ezInput[i] != '=')
 			tot++;
@@ -73,7 +73,8 @@ void ezBase2Bin(char*ezInput,char*ezBin)
 void ezBin2base(char*ezInput,char*ezBase) 
 {
 	int tot = 0;
-	for (int i = 0; i < 4; i++)
+	int i;
+	for (i = 0; i < 4; i++)
 	{
 		if (ezInput[i] != '\0')
 			tot++;
@@ -105,13 +106,13 @@ void ezBin2base(char*ezInput,char*ezBase)
 
 char* ezBase64Encode(char*ezInput,int size)
 {
+	int i = 0;
 	char*ezReturn = EZ_STR_INIT;
 	int ezTempCounter = 0;
 	char ezTempBuffer[4];
 	char finas[5];
 	ezBase64ZeroMem(ezTempBuffer,4);
 	ezBase64ZeroMem(finas,5);
-	int i = 0;
 	while (i < size)
 	{
 		
@@ -140,13 +141,13 @@ char* ezBase64Encode(char*ezInput,int size)
 
 char* ezBase64Decode(char*ezInput,int size)
 {
+	int i = 0;
 	char*ezReturn = EZ_STR_INIT;
 	int ezTempCounter = 0;
 	char ezTempBuffer[5];
 	char finas[5];
 	ezBase64ZeroMem(ezTempBuffer,5);
 	ezBase64ZeroMem(finas,5);
-	int i = 0;
 	while (i < size)
 	{
 		
