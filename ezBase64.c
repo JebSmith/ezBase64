@@ -23,7 +23,7 @@ void ezBase64ZeroMem(char*ezInput,int size)
 	}
 }
 
-unsigned char exBase642Char(char c) {
+unsigned char ezBase642Char(char c) {
 	if(c >='A' && c <='Z') 
 		return c - 'A';
 	if(c >='a' && c <='z') 
@@ -50,18 +50,18 @@ void ezBase2Bin(char*ezInput,char*ezBin)
 	switch(tot)
 	{
 		case 2:
-			ezBin[0] = (exBase642Char(ezInput[0]) << 2) | ((exBase642Char(ezInput[1]) & 0xf0) >> 4);
+			ezBin[0] = (ezBase642Char(ezInput[0]) << 2) | ((ezBase642Char(ezInput[1]) & 0xf0) >> 4);
 			ezBin[1] = '\0';
 			break;
 		case 3:
-			ezBin[0] = (exBase642Char(ezInput[0]) << 2) | ((exBase642Char(ezInput[1]) & 0xf0) >> 4);
-			ezBin[1] = ((exBase642Char(ezInput[1]) & 0xf) << 4) | ((exBase642Char(ezInput[2]) & 0x3c)  >> 2);
+			ezBin[0] = (ezBase642Char(ezInput[0]) << 2) | ((ezBase642Char(ezInput[1]) & 0xf0) >> 4);
+			ezBin[1] = ((ezBase642Char(ezInput[1]) & 0xf) << 4) | ((ezBase642Char(ezInput[2]) & 0x3c)  >> 2);
 			ezBin[2] = '\0';
 			break;
 		case 4:
-			ezBin[0] = (exBase642Char(ezInput[0]) << 2) | ((exBase642Char(ezInput[1]) & 0xf0) >> 4);
-			ezBin[1] = ((exBase642Char(ezInput[1]) & 0xf) << 4) | ((exBase642Char(ezInput[2]) & 0x3c)  >> 2);
-			ezBin[2] = ((exBase642Char(ezInput[2])&0x3) << 6) | (exBase642Char(ezInput[3]));
+			ezBin[0] = (ezBase642Char(ezInput[0]) << 2) | ((ezBase642Char(ezInput[1]) & 0xf0) >> 4);
+			ezBin[1] = ((ezBase642Char(ezInput[1]) & 0xf) << 4) | ((ezBase642Char(ezInput[2]) & 0x3c)  >> 2);
+			ezBin[2] = ((ezBase642Char(ezInput[2])&0x3) << 6) | (ezBase642Char(ezInput[3]));
 			break;
 		default:
 			break;
