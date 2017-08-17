@@ -1,3 +1,5 @@
+#include "ezBase64.h"
+
 #define EZ_STR_INIT ""
 #define EZ_STR_MAKE_INIT(str) str=EZ_STR_INIT
 
