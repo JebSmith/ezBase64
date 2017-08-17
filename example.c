@@ -10,6 +10,8 @@ int main()
 	char*Decoded = ezBase64Decode(Encoded,strlen(Encoded));
 	printf("%s\n%s\n%s\n",Greeting,Encoded,Decoded);
 	system("pause");
+	free(Decoded); //free da memory, man
+	free(Encoded);
 	return 0;
 }
 
